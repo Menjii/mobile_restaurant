@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">mobileRestaurant</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_restaurant_menu">Menu</string>
+    <string name="menu_orders">Zamówienia</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
 </resources>
