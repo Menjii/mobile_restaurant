@@ -1,14 +1,11 @@
 package pl.pwsztar.mobilerestaurant.views.fragments.MenuFragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -18,8 +15,6 @@ import java.util.Observer;
 
 import pl.pwsztar.mobilerestaurant.R;
 import pl.pwsztar.mobilerestaurant.views.adapters.CategoryPageAdapter;
-import pl.pwsztar.mobilerestaurant.views.adapters.LastShippedFoodAdapter;
-import pl.pwsztar.mobilerestaurant.views.fragments.HomeFragment.HomeFragmentViewModel;
 
 public class MenuFragment extends Fragment implements Observer {
 

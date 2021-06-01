@@ -41,10 +41,10 @@ public class CategoryPageAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 4;
     }
 
-    String[] categories = {"Pierogi", "Pizza"};
+    String[] categories = {"Zestawy", "Napoje", "Pizza", "Sosy"};
     @Override
     public CharSequence getPageTitle(int position) {
         return categories[position];

@@ -4,9 +4,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +17,7 @@ import java.util.List;
 import pl.pwsztar.mobilerestaurant.R;
 import pl.pwsztar.mobilerestaurant.model.dtos.FoodDto;
 
-public class LastShippedFoodAdapter extends RecyclerView.Adapter<LastShippedFoodAdapter.ViewHolder> {
+public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.ViewHolder> {
 
     private List<FoodDto> foodDtoList = new ArrayList<>();
 
@@ -25,6 +28,7 @@ public class LastShippedFoodAdapter extends RecyclerView.Adapter<LastShippedFood
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView foodName;
         private final TextView foodDesc;
+        private final ImageView imageView;
         private final TextView foodPrize;
 
         public ViewHolder(View view) {
@@ -33,6 +37,7 @@ public class LastShippedFoodAdapter extends RecyclerView.Adapter<LastShippedFood
 
             foodName = (TextView) view.findViewById(R.id.food_name);
             foodDesc = (TextView) view.findViewById(R.id.food_desc);
+            imageView = (ImageView) view.findViewById(R.id.food_image);
             foodPrize = (TextView) view.findViewById(R.id.food_prize);
         }
 
@@ -47,6 +52,10 @@ public class LastShippedFoodAdapter extends RecyclerView.Adapter<LastShippedFood
         public TextView getFoodPrize() {
             return foodPrize;
         }
+
+        public ImageView getImageView() {
+            return imageView;
+        }
     }
 
     /**
@@ -54,12 +63,11 @@ public class LastShippedFoodAdapter extends RecyclerView.Adapter<LastShippedFood
      *
      * by RecyclerView.
      */
-    public LastShippedFoodAdapter() {
+    public FoodMenuAdapter() {
 
     }
 
     public void update(List<FoodDto> newFoods) {
-        Log.i("TEST", "Updated: " + newFoods.size());
         this.foodDtoList = newFoods;
         this.notifyDataSetChanged();
     }
@@ -69,7 +77,7 @@ public class LastShippedFoodAdapter extends RecyclerView.Adapter<LastShippedFood
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item_last_shipped_food, viewGroup, false);
+                .inflate(R.layout.item_food_menu, viewGroup, false);
 
         return new ViewHolder(view);
     }
@@ -82,6 +90,7 @@ public class LastShippedFoodAdapter extends RecyclerView.Adapter<LastShippedFood
         // contents of the view with that element
         FoodDto foodItem = foodDtoList.get(position);
 
+        Picasso.get().load(foodItem.getImageHref()).into(viewHolder.getImageView());
         viewHolder.getFoodName().setText(foodItem.getName());
         viewHolder.getFoodDesc().setText(foodItem.getDescription());
         viewHolder.getFoodPrize().setText(foodItem.getPrice() + " zł");

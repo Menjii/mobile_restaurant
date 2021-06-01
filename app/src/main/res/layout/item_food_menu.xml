@@ -17,9 +17,11 @@
             android:layout_height="100dp">
 
             <ImageView
+                android:id="@+id/food_image"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/pierogi" />
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:layout_height="100dp" />
 
             <LinearLayout
                 android:layout_width="170dp"

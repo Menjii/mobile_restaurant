@@ -20,15 +20,20 @@ public class FoodDto {
     @Expose
     String description;
 
+    @SerializedName("imageHref")
+    @Expose
+    String imageHref;
+
     @SerializedName("prize")
     @Expose
     int price;
 
-    public FoodDto(int id, CategoryDto category, String name, String description, int price) {
+    public FoodDto(int id, CategoryDto category, String name, String description, String imageHref, int price) {
         this.id = id;
         this.category = category;
         this.name = name;
         this.description = description;
+        this.imageHref = imageHref;
         this.price = price;
     }
 
@@ -36,7 +41,7 @@ public class FoodDto {
         return id;
     }
 
-    public CategoryDto getCategoryId() {
+    public CategoryDto getCategory() {
         return category;
     }
 
@@ -46,6 +51,10 @@ public class FoodDto {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getImageHref() {
+        return imageHref;
     }
 
     public int getPrice() {

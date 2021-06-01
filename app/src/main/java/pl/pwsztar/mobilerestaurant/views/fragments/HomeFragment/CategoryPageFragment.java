@@ -5,21 +5,25 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 import java.util.Observable;
 import java.util.Observer;
 
 import pl.pwsztar.mobilerestaurant.R;
-import pl.pwsztar.mobilerestaurant.views.adapters.LastShippedFoodAdapter;
+import pl.pwsztar.mobilerestaurant.views.adapters.FoodMenuAdapter;
 import pl.pwsztar.mobilerestaurant.views.fragments.MenuFragment.MenuFragmentViewModel;
 
 public class CategoryPageFragment  extends Fragment implements Observer {
-    private LastShippedFoodAdapter lastShippedFoodAdapter;
+    private FoodMenuAdapter foodMenuAdapter;
     public static final String ARG_OBJECT = "object";
+    private TextView tvCategoryDesc;
 
     private int categoryId;
     public CategoryPageFragment(int categoryId) {
@@ -44,18 +48,24 @@ public class CategoryPageFragment  extends Fragment implements Observer {
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
 
         RecyclerView recyclerView = view.findViewById(R.id.list_last_shipped);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        lastShippedFoodAdapter = new LastShippedFoodAdapter();
-        recyclerView.setAdapter(lastShippedFoodAdapter);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        foodMenuAdapter = new FoodMenuAdapter();
+        recyclerView.setAdapter(foodMenuAdapter);
+
+        tvCategoryDesc = view.findViewById(R.id.category_description);
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        Log.i("TEST", "Booooooooooooom");
         if (o instanceof MenuFragmentViewModel) {
             MenuFragmentViewModel _viewModel = (MenuFragmentViewModel) o;
-            if (lastShippedFoodAdapter != null) {
-                lastShippedFoodAdapter.update(_viewModel.getFoodDtoList());
+            if (foodMenuAdapter != null) {
+                foodMenuAdapter.update(_viewModel.getFoodDtoList());
+                if( _viewModel.getFoodDtoList().size() > 0 ) {
+                    tvCategoryDesc.setText(_viewModel.getFoodDtoList().get(0).getCategory().getDescription());
+                }
             }
         }
     }

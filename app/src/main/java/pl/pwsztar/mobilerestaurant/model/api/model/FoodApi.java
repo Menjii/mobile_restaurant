@@ -10,9 +10,9 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface FoodApi {
-    @GET("food")
+    @GET("restaurant/food")
     Observable<List<FoodDto>> fetchAllFoods();
 
-    @GET("foodByCategory")
+    @GET("restaurant/foodByCategory")
     Observable<List<FoodDto>> fetchFoodsByCategoryId(@Query("categoryId") int categoryId);
 }
