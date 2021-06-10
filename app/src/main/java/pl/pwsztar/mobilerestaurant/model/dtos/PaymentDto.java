@@ -1,13 +1,13 @@
 package pl.pwsztar.mobilerestaurant.model.dtos;
 
 public class PaymentDto {
-    private int id;
+    private Integer id;
     private int amount;
     private String method;
     private String startData;
     private String paymentData;
 
-    public PaymentDto(int id, int amount, String method, String startData, String paymentData) {
+    public PaymentDto(Integer id, int amount, String method, String startData, String paymentData) {
         this.id = id;
         this.amount = amount;
         this.method = method;
@@ -15,7 +15,7 @@ public class PaymentDto {
         this.paymentData = paymentData;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

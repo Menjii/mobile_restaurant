@@ -1,15 +1,17 @@
 package pl.pwsztar.mobilerestaurant.model.dtos;
 
 public class OrderDto {
-    private int id;
-    private RateDto rate;
+    private Integer id;
+    private OrderRateDto rate;
     private PaymentDto paymentData;
+    private User client;
     private String realisationStatus;
     private String comments;
 
-    public OrderDto(int id, RateDto rate, PaymentDto paymentData, String realisationStatus, String comments) {
+    public OrderDto(Integer id, User client, OrderRateDto rate, PaymentDto paymentData, String realisationStatus, String comments) {
         this.id = id;
         this.rate = rate;
+        this.client = client;
         this.paymentData = paymentData;
         this.realisationStatus = realisationStatus;
         this.comments = comments;
@@ -19,7 +21,7 @@ public class OrderDto {
         return id;
     }
 
-    public RateDto getRate() {
+    public OrderRateDto getRate() {
         return rate;
     }
 
@@ -33,5 +35,9 @@ public class OrderDto {
 
     public String getComments() {
         return comments;
+    }
+
+    public User getClient() {
+        return client;
     }
 }

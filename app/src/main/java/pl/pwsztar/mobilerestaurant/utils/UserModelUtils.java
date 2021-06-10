@@ -31,4 +31,11 @@ public class UserModelUtils {
         prefsEditor.putString(USER_KEY, json);
         prefsEditor.apply();
     }
+
+    public static void removeUser(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+        prefsEditor.remove(USER_KEY);
+        prefsEditor.apply();
+    }
 }

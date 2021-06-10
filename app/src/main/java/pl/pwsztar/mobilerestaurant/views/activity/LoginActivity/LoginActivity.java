@@ -3,6 +3,8 @@ package pl.pwsztar.mobilerestaurant.views.activity.LoginActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,8 +29,10 @@ public class LoginActivity extends AppCompatActivity implements Observer {
 
 
         Button loginButton = findViewById(R.id.btn_login);
+        EditText etLogin = findViewById(R.id.et_username);
+        EditText etPassword = findViewById(R.id.et_password);
         loginButton.setOnClickListener((o) -> {
-            LoginRequest loginRequest = new LoginRequest("Somnitear", "test123");
+            LoginRequest loginRequest = new LoginRequest(etLogin.getText().toString(), etPassword.getText().toString());
 
             viewModel.login(loginRequest);
         });

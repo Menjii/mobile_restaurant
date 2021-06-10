@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   private boolean isLoggedIn() {
-    if( UserModelUtils.getUser(this) == null ) {
+    if( UserModelUtils.getUser(getApplicationContext()) == null ) {
       return false;
     }
     return true;

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_horizontal">16dp</dimen>
+    <dimen name="x5dp">5dp</dimen>
+    <dimen name="x10dp">10dp</dimen>
 </resources>
