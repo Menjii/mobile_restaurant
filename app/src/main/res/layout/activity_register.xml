@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:gravity="center"
     android:focusableInTouchMode="true"
+    android:gravity="center"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -23,12 +23,14 @@
             android:fontFamily="@font/calibri"
             android:gravity="center"
             android:textStyle="bold"
-            android:text="ZALOGUJ"
+            android:text="ZAREJESTRUJ"
             android:textSize="25sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/calibri"
             android:gravity="center"
@@ -36,31 +38,41 @@
             android:textSize="16sp" />
 
 
-            <EditText
-                android:id="@+id/et_username"
-                android:height="70dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableRight="@drawable/ic_email_white_24dp"
-                android:drawablePadding="16dp"
-                android:fontFamily="@font/calibri"
-                android:hint="Username"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:textSize="16sp" />
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:height="70dp"
+            android:drawablePadding="16dp"
+            android:fontFamily="@font/calibri"
+            android:hint="Username"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:height="70dp"
-                android:layout_height="match_parent"
-                android:drawableRight="@drawable/ic_lock_white_24dp"
-                android:drawablePadding="16dp"
-                android:fontFamily="@font/calibri"
-                android:hint="Hasło"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:textSize="16sp" />
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:height="70dp"
+            android:drawablePadding="16dp"
+            android:fontFamily="@font/calibri"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:height="70dp"
+            android:drawablePadding="16dp"
+            android:fontFamily="@font/calibri"
+            android:hint="Hasło"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,23 +84,11 @@
 
             <Button
                 android:id="@+id/btn_register"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/calibri"
                 android:text="Zarejestruj"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btn_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:fontFamily="@font/calibri"
-                android:text="Zaloguj"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp"

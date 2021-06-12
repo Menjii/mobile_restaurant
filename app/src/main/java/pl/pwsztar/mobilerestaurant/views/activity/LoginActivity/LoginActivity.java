@@ -15,6 +15,7 @@ import pl.pwsztar.mobilerestaurant.MainActivity;
 import pl.pwsztar.mobilerestaurant.R;
 import pl.pwsztar.mobilerestaurant.model.dtos.LoginRequest;
 import pl.pwsztar.mobilerestaurant.utils.UserModelUtils;
+import pl.pwsztar.mobilerestaurant.views.activity.RegisterActivity.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements Observer {
     LoginActivityViewModel viewModel;
@@ -35,6 +36,12 @@ public class LoginActivity extends AppCompatActivity implements Observer {
             LoginRequest loginRequest = new LoginRequest(etLogin.getText().toString(), etPassword.getText().toString());
 
             viewModel.login(loginRequest);
+        });
+
+        Button btnRegister = findViewById(R.id.btn_register);
+        btnRegister.setOnClickListener((e) -> {
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
         });
     }
 
