@@ -56,7 +56,7 @@ public class CreateOrderActivityViewModel extends Observable {
     private void getPaymentObject() {
         RestaurantApplication application = RestaurantApplication.create(context);
         PaymentService paymentService = new PaymentService();
-        Disposable disposable = paymentService.getPaymentObject(paymentDto)
+        Disposable disposable = paymentService.getPaymentObject(context, paymentDto)
                 .subscribeOn(application.subscribeScheduler())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -75,7 +75,7 @@ public class CreateOrderActivityViewModel extends Observable {
     private void getOrderRateObject() {
         RestaurantApplication application = RestaurantApplication.create(context);
         OrderRateService orderRateService = new OrderRateService();
-        Disposable disposable = orderRateService.getOrderRateObject(orderRateDto)
+        Disposable disposable = orderRateService.getOrderRateObject(context, orderRateDto)
                 .subscribeOn(application.subscribeScheduler())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -97,7 +97,7 @@ public class CreateOrderActivityViewModel extends Observable {
 
         RestaurantApplication application = RestaurantApplication.create(context);
         OrderService orderService = new OrderService();
-        Disposable disposable = orderService.getOrderObject(orderDto)
+        Disposable disposable = orderService.getOrderObject(context, orderDto)
                 .subscribeOn(application.subscribeScheduler())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -124,7 +124,7 @@ public class CreateOrderActivityViewModel extends Observable {
 
         RestaurantApplication application = RestaurantApplication.create(context);
         OrderDetailsService orderDetailsService = new OrderDetailsService();
-        Disposable disposable = orderDetailsService.saveOrder(shoppingCardItems)
+        Disposable disposable = orderDetailsService.saveOrder(context, shoppingCardItems)
                 .subscribeOn(application.subscribeScheduler())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {

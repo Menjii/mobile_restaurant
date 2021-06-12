@@ -27,6 +27,10 @@
         <activity android:name=".views.activity.HomeActivity" />
         <activity android:name=".views.activity.ShoppingCardActivity.ShoppingCardActivity" />
         <activity android:name=".views.activity.CreateOrderActivity.CreateOrderActivity" />
+        <activity android:name=".views.activity.RegisterActivity.RegisterActivity" />
+        <activity android:name=".views.activity.SettingsActivity" />
+        <activity android:name=".views.activity.AboutUsActivity" />
+        <activity android:name=".views.activity.ContactActivity" />
     </application>
 
 </manifest>

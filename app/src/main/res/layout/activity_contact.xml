@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="1dp"
+            android:theme="@style/MyThemeOverlay_Toolbar"
+            app:title="Ustawienia konta" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dip">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:layout_marginEnd="15dp"
+                android:contentDescription="TODO"
+                android:src="@drawable/gh_icon" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="26dip"
+                    android:ellipsize="marquee"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:text="Bartosz Dymański"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="https://github.com/Menjii"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dip">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:layout_marginEnd="15dp"
+                android:contentDescription="TODO"
+                android:src="@drawable/gh_icon" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="26dip"
+                    android:ellipsize="marquee"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:text="Robert Małek"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="https://github.com/Robert-Mal"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dip">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:layout_marginEnd="15dp"
+                android:contentDescription="TODO"
+                android:src="@drawable/gh_icon" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="26dip"
+                    android:ellipsize="marquee"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:text="Dominik Pająk"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="http://github.com/dpajak99/"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

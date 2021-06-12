@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         TextView tvUserName = headerView.findViewById(R.id.nav_header_textView);
 
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-        tvUserName.setText(currentUser.getName() + " " + currentUser.getSurname());
+        tvUserName.setText(currentUser.getUsername());
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,
                 drawerLayout,
@@ -66,9 +66,21 @@ public class HomeActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.drawer_item_logout:
                     UserModelUtils.removeUser(getApplicationContext());
-                    Intent intent = new Intent(this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                    Intent intentLogout = new Intent(this, MainActivity.class);
+                    intentLogout.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intentLogout);
+                    break;
+                case R.id.drawer_item_settings:
+                    Intent intentSettings = new Intent(this, SettingsActivity.class);
+                    startActivity(intentSettings);
+                    break;
+                case R.id.drawer_item_about:
+                    Intent intentAboutUs = new Intent(this, AboutUsActivity.class);
+                    startActivity(intentAboutUs);
+                    break;
+                case R.id.drawer_item_contact:
+                    Intent intentContact = new Intent(this, ContactActivity.class);
+                    startActivity(intentContact);
                     break;
             }
             return true;

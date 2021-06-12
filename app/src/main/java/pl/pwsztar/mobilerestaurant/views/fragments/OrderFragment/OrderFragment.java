@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,6 +23,7 @@ public class OrderFragment extends Fragment implements Observer {
     private OrderFragmentViewModel viewModel;
     private OrdersAdapter ordersAdapter;
     private LoginResponse currentUser;
+    private RecyclerView recyclerView;
     private View view;
 
     @Override
@@ -37,7 +39,7 @@ public class OrderFragment extends Fragment implements Observer {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         this.view = view;
-        RecyclerView recyclerView = view.findViewById(R.id.orders);
+        recyclerView = view.findViewById(R.id.orders);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -56,7 +58,15 @@ public class OrderFragment extends Fragment implements Observer {
         if (o instanceof OrderFragmentViewModel) {
             OrderFragmentViewModel _viewModel = (OrderFragmentViewModel) o;
             if (ordersAdapter != null) {
-                ordersAdapter.update(_viewModel.getOrderList());
+                RelativeLayout emptyOrders = requireActivity().findViewById(R.id.empty_orders);
+                if(_viewModel.getOrderList().isEmpty()) {
+                    emptyOrders.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.GONE);
+                } else {
+                    ordersAdapter.update(_viewModel.getOrderList());
+                    recyclerView.setVisibility(View.VISIBLE);
+                    emptyOrders.setVisibility(View.GONE);
+                }
             }
         }
     }

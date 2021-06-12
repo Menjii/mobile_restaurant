@@ -20,7 +20,7 @@ import pl.pwsztar.mobilerestaurant.model.dtos.ProductDto;
 import pl.pwsztar.mobilerestaurant.utils.ShoppingCardUtils;
 
 public class MenuFragmentViewModel extends Observable {
-    private Context context;
+    public Context context;
     public int itemsInStore = 1;
 
     public MenuFragmentViewModel(Context context) {

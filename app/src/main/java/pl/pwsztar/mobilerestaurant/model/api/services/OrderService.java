@@ -1,5 +1,7 @@
 package pl.pwsztar.mobilerestaurant.model.api.services;
 
+import android.content.Context;
+
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -9,11 +11,11 @@ import pl.pwsztar.mobilerestaurant.model.dtos.OrderDataDto;
 import pl.pwsztar.mobilerestaurant.model.dtos.OrderDto;
 
 public class OrderService {
-    public Observable<List<OrderDataDto>> getAllUserOrders(int id) {
-        return RestProvider.getInstance().getOrderApi().fetchAllUserOrders(id);
+    public Observable<List<OrderDataDto>> getAllUserOrders(Context context, int id) {
+        return RestProvider.getInstance(context).getOrderApi().fetchAllUserOrders(id);
     }
 
-    public Observable<OrderDto> getOrderObject(OrderDto order) {
-        return RestProvider.getInstance().getOrderApi().getOrderObject(order);
+    public Observable<OrderDto> getOrderObject(Context context, OrderDto order) {
+        return RestProvider.getInstance(context).getOrderApi().getOrderObject(order);
     }
 }

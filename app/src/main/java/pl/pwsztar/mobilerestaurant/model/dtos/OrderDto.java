@@ -5,15 +5,16 @@ public class OrderDto {
     private OrderRateDto rate;
     private PaymentDto paymentData;
     private User client;
-    private String realisationStatus;
+    private WorkerDto worker = new WorkerDto(1);
+    private String realizationStatus;
     private String comments;
 
-    public OrderDto(Integer id, User client, OrderRateDto rate, PaymentDto paymentData, String realisationStatus, String comments) {
+    public OrderDto(Integer id, User client, OrderRateDto rate, PaymentDto paymentData, String realizationStatus, String comments) {
         this.id = id;
         this.rate = rate;
         this.client = client;
         this.paymentData = paymentData;
-        this.realisationStatus = realisationStatus;
+        this.realizationStatus = realizationStatus;
         this.comments = comments;
     }
 
@@ -29,8 +30,8 @@ public class OrderDto {
         return paymentData;
     }
 
-    public String getRealisationStatus() {
-        return realisationStatus;
+    public String getRealizationStatus() {
+        return realizationStatus;
     }
 
     public String getComments() {

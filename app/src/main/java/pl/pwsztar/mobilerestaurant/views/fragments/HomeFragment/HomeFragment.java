@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment implements Observer {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         TextView tvUserName = requireActivity().findViewById(R.id.tv_user_name);
-        tvUserName.setText(currentUser.getName() + " " + currentUser.getSurname());
+        tvUserName.setText(currentUser.getUsername());
 
     }
 

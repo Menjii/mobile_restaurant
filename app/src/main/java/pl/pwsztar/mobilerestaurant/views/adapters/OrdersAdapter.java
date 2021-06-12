@@ -14,7 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.pwsztar.mobilerestaurant.R;
+import pl.pwsztar.mobilerestaurant.model.dtos.LoginResponse;
 import pl.pwsztar.mobilerestaurant.model.dtos.OrderDataDto;
+import pl.pwsztar.mobilerestaurant.utils.UserModelUtils;
 
 public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder> {
 
@@ -26,19 +28,37 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
      * (custom ViewHolder).
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView tvOrderId;
+        private final TextView tvOrderDate;
+        private final TextView tvOrderStatus;
+        private final TextView tvOrderAddress;
+        private final TextView tvPriceSum;
         private final RecyclerView orderProductsList;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
 
-            tvOrderId = (TextView) view.findViewById(R.id.tv_order_id);
+            tvOrderDate = (TextView) view.findViewById(R.id.tv_order_date);
+            tvOrderStatus = (TextView) view.findViewById(R.id.tv_order_status);
+            tvOrderAddress = (TextView) view.findViewById(R.id.tv_order_address);
+            tvPriceSum = (TextView) view.findViewById(R.id.tv_order_price);
             orderProductsList = (RecyclerView) view.findViewById(R.id.order_products);
         }
 
-        public TextView getTvOrderId() {
-            return tvOrderId;
+        public TextView getTvOrderDate() {
+            return tvOrderDate;
+        }
+
+        public TextView getTvPriceSum() {
+            return tvPriceSum;
+        }
+
+        public TextView getTvOrderStatus() {
+            return tvOrderStatus;
+        }
+
+        public TextView getTvOrderAddress() {
+            return tvOrderAddress;
         }
 
         public RecyclerView getOrderProductsList() {
@@ -78,7 +98,15 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         OrderDataDto order = ordersList.get(position);
-        viewHolder.tvOrderId.setText(String.valueOf(order.getOrder().getId()));
+        viewHolder.tvOrderDate.setText(String.valueOf(order.getOrder().getPaymentData().getStartData()));
+        viewHolder.tvPriceSum.setText(String.valueOf(order.getOrder().getPaymentData().getAmount()) + " zł");
+        viewHolder.tvOrderStatus.setText(String.valueOf(order.getOrder().getRealizationStatus()));
+        LoginResponse currentUser = UserModelUtils.getUser(context);
+        String addressText = currentUser.getAddressDto().getStreet() + " " +
+                currentUser.getAddressDto().getHomeNumber() + "\n" +
+                currentUser.getAddressDto().getPostNumber() + " " +
+                currentUser.getAddressDto().getCity() + "\n";
+        viewHolder.tvOrderAddress.setText(addressText);
 
         viewHolder.getOrderProductsList().setNestedScrollingEnabled(false);
         viewHolder.getOrderProductsList().setHasFixedSize(true);

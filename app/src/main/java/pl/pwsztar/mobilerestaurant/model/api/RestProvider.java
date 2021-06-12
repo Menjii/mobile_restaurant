@@ -1,5 +1,8 @@
 package pl.pwsztar.mobilerestaurant.model.api;
 
+import android.content.Context;
+
+import pl.pwsztar.mobilerestaurant.R;
 import pl.pwsztar.mobilerestaurant.model.api.model.AuthApi;
 import pl.pwsztar.mobilerestaurant.model.api.model.FoodApi;
 import pl.pwsztar.mobilerestaurant.model.api.model.OrderApi;
@@ -18,9 +21,9 @@ public class RestProvider {
     private PaymentApi paymentApi;
     private OrderDetailsApi orderDetailsApi;
 
-    RestProvider() {
+    RestProvider(Context context) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.42.205:8001/api/")
+                .baseUrl("http://"+context.getResources().getString(R.string.server_ip)+"/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
@@ -33,8 +36,8 @@ public class RestProvider {
         orderDetailsApi = retrofit.create(OrderDetailsApi.class);
     }
 
-    public static RestProvider getInstance() {
-        return new RestProvider();
+    public static RestProvider getInstance(Context context) {
+        return new RestProvider(context);
     }
 
     public FoodApi getFoodApi() {

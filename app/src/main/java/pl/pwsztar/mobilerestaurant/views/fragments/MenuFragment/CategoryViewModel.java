@@ -37,7 +37,7 @@ public class CategoryViewModel extends Observable {
         RestaurantApplication application = RestaurantApplication.create(context);
         FoodService foodService = new FoodService();
 
-        Disposable disposable = foodService.getById(categoryId)
+        Disposable disposable = foodService.getById(context, categoryId)
                 .subscribeOn(application.subscribeScheduler())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {

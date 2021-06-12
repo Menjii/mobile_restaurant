@@ -25,6 +25,38 @@ public class User {
         this.address = loginResponse.getAddressDto();
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public AddressDto getAddress() {
+        return address;
+    }
+
     public void setId(int id) {
         this.id = id;
     }

@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">mobileRestaurant</string>
+    <string name="server_ip">192.168.42.171:8001</string>
+
     <string name="menu_home">Home</string>
     <string name="menu_restaurant_menu">Menu</string>
     <string name="menu_orders">Zamówienia</string>
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
+    <string name="about_us">Aplikacja Restauracja Badoro Dypama to projekt stworzony
+        na potrzeby zaliczenia na przedmiot Projektowanie Systemów Mobilnych. Oferuje
+        ona możliwość założenia konta, zalogowania się oraz zamówienia dowolnego produktu
+        z menu restauracji. Dodatkowo mamy wgląd do historii zamówień</string>
 </resources>

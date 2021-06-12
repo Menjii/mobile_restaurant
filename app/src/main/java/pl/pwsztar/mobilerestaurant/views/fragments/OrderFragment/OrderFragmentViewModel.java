@@ -39,7 +39,7 @@ public class OrderFragmentViewModel extends Observable {
         RestaurantApplication application = RestaurantApplication.create(context);
         OrderService orderService = new OrderService();
 
-        Disposable disposable = orderService.getAllUserOrders(UserModelUtils.getUser(context).getId())
+        Disposable disposable = orderService.getAllUserOrders(context, UserModelUtils.getUser(context).getId())
                 .subscribeOn(application.subscribeScheduler())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {

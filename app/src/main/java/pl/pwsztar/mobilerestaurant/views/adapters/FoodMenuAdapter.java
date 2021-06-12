@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -98,6 +99,7 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<FoodMenuAdapter.ViewHo
         viewHolder.itemContainter.setOnClickListener((o) -> {
             Log.e("TEST", "CLICKED");
             this.viewModel.addNewItemToStore(foodItem);
+            Toast.makeText(viewModel.context, "Dodano produkt do koszyka", Toast.LENGTH_SHORT).show();
         });
         Picasso.get().load(foodItem.getImageHref()).into(viewHolder.getImageView());
         viewHolder.getFoodName().setText(foodItem.getName());
